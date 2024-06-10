@@ -1,0 +1,213 @@
+@charset "ISO-8859-1";
+ body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Prevent scroll */
+    background: url("https://t4.ftcdn.net/jpg/02/30/37/93/360_F_230379361_GdzubTAT5hxPTuNMMQq5TkLYNKM6WoCc.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.QuestionDiv {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 20px;
+    border: 2px solid transparent;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+}
+
+.QuestionDiv:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.QuestionDiv p {
+    margin-bottom: 15px;
+    font-size: 30px; /* Increased font size */
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Dark text color */
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.QuestionDiv input[type="radio"] {
+    display: none;
+}
+
+.QuestionDiv label {
+    display: inline-block;
+    margin: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: rgba(165, 42, 42, 0.6); /* Transparent brown background */
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    color: #fff; /* White text */
+}
+
+.QuestionDiv input[type="radio"]:checked + label {
+    background: #ffa500; /* Orange color */
+    color: white;
+    box-shadow: 0 0 10px #ffa500;
+    animation: pulseChecked 1s infinite; /* Pulsing effect when checked */
+}
+
+@keyframes pulseChecked {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #ffa500;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #ffa500;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #ffa500;
+    }
+}
+
+.QuestionDiv label:hover {
+    background: #ffd700; /* Lighter orange color on hover */
+    transform: scale(1.1);
+    box-shadow: 0 0 5px #aaa;
+}
+
+.QuestionDiv input[type="submit"] {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+}
+
+.QuestionDiv input[type="submit"]:hover {
+    background-color: #DF4723; /* Darker red on hover */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #DF4723; /* Red shadow on hover */
+}
+
+#timer {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 18px;
+    color: white; /* White text color */
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8); /* Black background */
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black; /* Black border */
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #FF0000;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #FF0000;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #FF0000;
+    }
+}
+
+#timer:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #FF0000;
+}
+
+/* Additional CSS for enhanced visual effects */
+.QuestionDiv::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+    border-radius: 15px;
+    z-index: -1;
+    filter: blur(5px);
+    transition: opacity 0.1s;
+}
+
+.QuestionDiv:hover::before {
+    opacity: 0.5; /* Increase overlay opacity on hover */
+}
+
+.QuestionDiv label {
+    font-family: 'Courier New', Courier, monospace; /* Different font for options */
+}
+
+.QuestionDiv input[type="submit"] {
+    font-family: 'Courier New', Courier, monospace; /* Different font for submit button */
+}
+
+#timer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    animation: glow 1.5s ease-in-out infinite alternate; /* Glow effect */
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
+
+
+#timer span {
+    font-size: 28px;
+    font-weight: bold;
+}
